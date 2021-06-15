@@ -50,24 +50,21 @@
                         <p title="{{task.description}}" class="m-0">{{ task.description }}</p>
                       </div>
                     </td>
-                    <td style="width: 20%;">
+                    <td style="width: 30%;">
                       {{task.expired_at}}
                     </td>
-                    <td style="width: 20%;">
+                    <td style="width: 30%;">
+                      {% if task.ended_at != None %}
                       {{task.ended_at}}
-                    </td>
-                    <td style="width: 20%;">
-                      <a href="{% url 'task_end' task.id %}" class="btn btn-sm btn-success" title="check">C</a>
-                      <button
-                        onclick="changeFormToEdit('{{task.id}}','{{task.title}}','{{task.description}}','{{task.expired_at}}','{{task.category.id}}')"
-                        class="btn btn-sm btn-warning" title="edit">E</button>
-                      <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-danger" title="delete">D</a>
+                      {% else %}
+                      Not finalized
+                      {% endif %}
                     </td>
                   </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
-            {% endfor %}
-            </tbody>
-            </table>
           </div>
         </div>
 
