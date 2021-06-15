@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Hazdan/todo">
-    <img src="./todo_django/todo/static/images/logo.png" alt="Logo" height="150">
+    <img src="./todo_django/todo/static/images/Logo.png" alt="Logo" height="150">
   </a>
 
   <h3 align="center">ToDo</h3>
@@ -44,11 +44,8 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -166,7 +163,6 @@ Project Link: [https://github.com/Hazdan/todo](https://github.com/github_usernam
 [stars-shield]: https://img.shields.io/github/stars/Hazdan/todo.svg?style=for-the-badge
 [stars-url]: https://github.com/Hazdan/repo/stargazers
 [license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/Hazdan/todo/blob/master/LICENSE
+[license-url]: https://github.com/Hazdan/todo/blob/main/LICENCE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/github_username
-'+
