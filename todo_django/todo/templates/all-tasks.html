@@ -1,0 +1,83 @@
+{% extends 'layout/index.html' %}
+{% load static %}
+{% block title %} All tasks {% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column justify-content-between bg-light viewport-container p-0">
+  <div class="wrapper mx-auto">
+    <div class="container-fluid col-12 d-flex flex-wrap align-items-center w-100 h-80-vh mt-5">
+      <aside class="card profile-card mx-auto mt-5 rounded">
+        <h3></h3>
+        <div class="card-top mt-5">
+          <h1 class="title">ToDo</h1>
+        </div>
+        <div class="card-body text-center">
+          <h4 class="card-title">Welcole {{ user.username }}!</h4>
+        </div>
+        <div class="card-footer p-0">
+          <a class="card-link d-block w-100" href="{% url 'home' %}">Current tasks</a>
+          <a class="card-link d-block w-100" href="{% url 'ended_tasks' %}">Ended tasks</a>
+          <a class="card-link d-block w-100 link-active" href="{% url 'all_tasks' %}">All tasks</a>
+          <a class="card-link d-block w-100" href="{% url 'logout' %}">Log out</a>
+        </div>
+      </aside>
+      <main class="main mx-auto mt-5">
+        <div class="col-12 d-flex flex-wrap p-0">
+          <div class="col-12 bg-white rounded py-4">
+            <h3 class="text-center">Tasks list</h3>
+            <div class="table-responsive  task-table full-table">
+              <table class="table table-striped">
+                <tbody>
+                  {% if not tasks %}
+                  <tr>
+                    <td class="d-flex" style="width: 42%;">
+                    <td style="width: 38%;">Add tasks to view the listing</td>
+                    <td style="width: 20%;"></td>
+                  </tr>
+                  {% endif %}
+                  {% for task in tasks %}
+                  <tr>
+                    <td class="d-flex m-0" style="min-width:40%;width: 20rem;overflow:hidden;">
+                      <figure class="task-figure mr-3">
+                        <img src="{{task.category.image}}" alt="{{task.category}}" class="task-img">
+                      </figure>
+                      <div>
+                        <h4 title="{{task.title}}">{{ task.title.capitalize }}</h4>
+                        <p title="{{task.description}}" class="m-0">{{ task.description }}</p>
+                      </div>
+                    </td>
+                    <td style="width: 20%;">
+                      {{task.expired_at}}
+                    </td>
+                    <td style="width: 20%;">
+                      {{task.ended_at}}
+                    </td>
+                    <td style="width: 20%;">
+                      <a href="{% url 'task_end' task.id %}" class="btn btn-sm btn-success" title="check">C</a>
+                      <button
+                        onclick="changeFormToEdit('{{task.id}}','{{task.title}}','{{task.description}}','{{task.expired_at}}','{{task.category.id}}')"
+                        class="btn btn-sm btn-warning" title="edit">E</button>
+                      <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-danger" title="delete">D</a>
+                    </td>
+                  </tr>
+            </div>
+            {% endfor %}
+            </tbody>
+            </table>
+          </div>
+        </div>
+
+    </div>
+    </main>
+  </div>
+</div>
+{% include 'layout/footer.html' %}
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="{% static '/js/home.js' %}"></script>
+{% endblock scripts %}

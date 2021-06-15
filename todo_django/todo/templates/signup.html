@@ -1,0 +1,46 @@
+{% extends 'layout/index.html' %}
+{% load static %}
+{% block title %} Sign up {% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static '/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid viewport-container gradient-bg p-0 d-flex justify-content-center align-items-center"
+  id="mainContainer">
+  <main class="card card-login m-3">
+    <div class="card-body d-flex flex-wrap">
+      <div class="col-md-5 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="text-light main-title">ToDo</h1>
+        <h3 class="subtitle">By Hazdan</h3>
+      </div>
+      <div class="col-md-7 login-col d-flex flex-column justify-content-evenly align-items-center">
+        <div class="alerts">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <h2 class="title">
+          Sign Up
+        </h2>
+        <form class="d-flex flex-column align-items-center w-100 mx-5 px-5 mb-5" method="POST">
+          <div class="col-md-10">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-row">
+              <input class="btn btn-primary font-weight-bold col-md-3 mx-auto mt-4" type="submit" value="Register">
+            </div>
+            <div class="form-row text-center mt-3">
+              <p class="m-auto">
+                Alredy have account? <a class="text-secondary" href="{% url 'login' %}">Login</a>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}
