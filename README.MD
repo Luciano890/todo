@@ -81,9 +81,10 @@ To get a local copy up and running follow these simple steps.
 2. In the clone folder create a virtual environment
 
    ```sh
-   # Windows
    py -m venv venv
-   # Linux
+   # or
+   python -m venv venv
+   # or
    python3 -m venv venv
    ```
 3. Install requirements
@@ -117,25 +118,29 @@ To get a local copy up and running follow these simple steps.
    ```
 6. From todo_django run
     ```sh
-    # Windows
     py manage.py makemigrations
     py manage.py migrate
-    # Linux
+    # or
+    python manage.py makemigrations
+    python manage.py migrate
+    # or
     python3 manage.py makemigrations
     python3 manage.py migrate
     ```
 7. Create a superuser
    ```sh
-   # Windows
     py manage.py createsuperuser
-    # Linux
+    # or
+    python manage.py createsuperuser
+    # or
     python3 manage.py createsuperuser
     ```
 8. Run server
     ```sh
-   # Windows
     py manage.py runserver
-    # Linux
+    # or
+    python manage.py runserver
+    # or
     python3 manage.py runserver
     ```
 
