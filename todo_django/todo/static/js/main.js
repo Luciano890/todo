@@ -1,0 +1,1 @@
+window.onload = () => { let e = document.querySelector("#loader"); setTimeout((() => { e.classList.add("d-none") }), 1e3) };
