@@ -100,7 +100,7 @@ class TaskCreateForm(ModelForm):
   expired_at = forms.DateTimeField(
     label='Finish date',
     required=True,
-    initial=datetime.date.today,
+    input_formats= ['Y-m-d H:i:s', 'yyyy-MM-ddThh:mm'],
     widget = forms.DateTimeInput(
       attrs={
         'type': 'datetime-local',
@@ -150,7 +150,7 @@ class TaskEditForm(ModelForm):
   expired_at = forms.DateTimeField(
     label='Finish date',
     required=True,
-    initial=datetime.date.today,
+    input_formats=['Y-m-d H:i:s', 'Y-m-dTH:i:s'],
     widget = forms.DateTimeInput(
       attrs={
         'type': 'datetime-local',
